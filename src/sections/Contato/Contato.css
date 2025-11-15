@@ -1,0 +1,308 @@
+#contato {
+	height: 100vh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2rem 0.5rem;
+	text-align: center;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+.contact-inner {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+}
+
+.contact-heading {
+	font-size: clamp(2rem, 4vw, 3.5rem);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+.contact-description {
+	font-size: clamp(0.95rem, 2vw, 1.15rem);
+	color: var(--text-dark);
+	max-width: 640px;
+	margin: 0 auto 2.5rem;
+	line-height: 1.7;
+}
+
+.contact-form {
+	max-width: 520px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 0 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-input {
+	background: transparent;
+	border: 1px solid var(--lightest-bg);
+	border-radius: 0.5rem;
+	width: 100%;
+	padding: 1rem 0.875rem 0.5rem;
+	color: var(--text-light);
+	font-size: 0.95rem;
+	transition: border var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+	outline: none;
+}
+
+.form-input::placeholder {
+	color: transparent;
+}
+
+.form-input:focus {
+	border-color: var(--brand-color);
+	box-shadow: 0 0 0 2px rgba(192, 160, 98, 0.1);
+}
+
+.form-label {
+	position: absolute;
+	left: 0.875rem;
+	top: 0.875rem;
+	color: var(--text-dark);
+	font-size: 0.95rem;
+	pointer-events: none;
+	transition: transform 0.3s ease, color 0.3s ease, top 0.3s ease, left 0.3s ease;
+	background: var(--dark-bg);
+	padding: 0 0.35rem;
+	transform-origin: left top;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input[data-has-value] + .form-label {
+	top: -0.55rem;
+	left: 0.625rem;
+	font-size: 0.75rem;
+	color: var(--brand-color);
+	transform: translateY(0) scale(0.92);
+}
+
+textarea.form-input {
+	min-height: 120px;
+	resize: vertical;
+}
+
+.form-input:not(:focus):not(:placeholder-shown):invalid + .form-label {
+	color: var(--text-dark);
+}
+
+.submit-button {
+	background-color: transparent;
+	color: var(--brand-color);
+	border: 1px solid var(--brand-color);
+	border-radius: 0.5rem;
+	padding: 0.9rem 1.5rem;
+	font-weight: 600;
+	font-size: 1rem;
+	transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+	width: 100%;
+	cursor: none;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+	background-color: var(--brand-color);
+	color: var(--dark-bg);
+	transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.submit-button:disabled:hover {
+	background-color: transparent;
+	color: var(--brand-color);
+}
+
+.contact-status {
+	margin-top: 1.5rem;
+	font-size: 0.95rem;
+	padding: 0.85rem 1.25rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	font-weight: 600;
+	animation: fadeIn 0.4s ease;
+	border: 1px solid var(--border-color);
+	background-color: var(--light-bg);
+	color: var(--text-light);
+	box-shadow: var(--shadow-soft);
+}
+
+.contact-status.success {
+	background-color: var(--brand-color-tint);
+	color: var(--brand-color);
+	border-color: rgba(192, 160, 98, 0.25);
+}
+
+.contact-status.error {
+	background-color: var(--color-error-soft);
+	color: var(--color-error);
+	border-color: var(--color-error-border);
+	box-shadow: 0 15px 35px -25px rgba(220, 38, 38, 0.35);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Mobile First */
+@media (max-width: 767px) {
+	#contato {
+		height: auto;
+		min-height: 100vh;
+		padding: 3rem 1rem;
+	}
+
+	.contact-inner {
+		padding: 0 0.5rem;
+	}
+
+	.contact-heading {
+		font-size: clamp(1.75rem, 7vw, 2.5rem);
+		margin-bottom: 1rem;
+	}
+
+	.contact-description {
+		font-size: clamp(0.9rem, 4vw, 1rem);
+		margin-bottom: 2rem;
+		line-height: 1.6;
+	}
+
+	.contact-form {
+		gap: 1.25rem;
+		padding: 0;
+		max-width: 100%;
+	}
+
+	.form-input {
+		padding: 0.9rem 0.75rem 0.4rem;
+		font-size: 0.9rem;
+	}
+
+	.form-label {
+		font-size: 0.9rem;
+		left: 0.75rem;
+		top: 0.75rem;
+	}
+
+	.form-input:focus + .form-label,
+	.form-input:not(:placeholder-shown) + .form-label,
+	.form-input[data-has-value] + .form-label {
+		font-size: 0.7rem;
+		top: -0.5rem;
+		left: 0.5rem;
+	}
+
+	textarea.form-input {
+		min-height: 100px;
+	}
+
+	.submit-button {
+		padding: 0.85rem 1.25rem;
+		font-size: 0.95rem;
+	}
+
+	.contact-status {
+		font-size: 0.9rem;
+		margin-top: 1rem;
+	}
+}
+
+@media (min-width: 768px) {
+	#contato {
+		padding: 5rem 1.5rem 5rem;
+	}
+
+	.contact-form {
+		padding: 0 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	#contato {
+		padding: 6rem 2rem 6rem;
+	}
+
+	.contact-form {
+		gap: 2rem;
+	}
+
+	.form-input {
+		padding: 1.25rem 1rem 0.75rem;
+		font-size: 1rem;
+	}
+
+	.form-label {
+		left: 1rem;
+		top: 1rem;
+		font-size: 1rem;
+	}
+
+	.form-input:focus + .form-label,
+	.form-input:not(:placeholder-shown) + .form-label,
+	.form-input[data-has-value] + .form-label {
+		left: 0.75rem;
+		font-size: 0.8rem;
+	}
+
+	.submit-button {
+		font-size: 1.05rem;
+		padding: 1rem 1.75rem;
+	}
+}
+
+/* Modo claro - melhorar legibilidade dos inputs */
+[data-theme="light"] .form-input {
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	color: #1a1a1a;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .form-input:focus {
+	border-color: var(--brand-color);
+	box-shadow: 0 0 0 3px rgba(192, 160, 98, 0.2);
+}
+
+[data-theme="light"] .form-label {
+	color: #4a4a4a;
+	background: transparent;
+}
+
+[data-theme="light"] .form-input:focus + .form-label,
+[data-theme="light"] .form-input:not(:placeholder-shown) + .form-label,
+[data-theme="light"] .form-input[data-has-value] + .form-label {
+	color: var(--brand-color);
+	background: #ffffff;
+}
+
+[data-theme="light"] .submit-button {
+	border: 2px solid var(--brand-color);
+	color: var(--brand-color);
+}
+
+[data-theme="light"] .submit-button:hover {
+	background-color: var(--brand-color);
+	color: #ffffff;
+}
