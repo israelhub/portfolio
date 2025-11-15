@@ -1,0 +1,150 @@
+.sobre-section {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sobre-container {
+  max-width: 1200px;
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100vh - 4rem);
+  padding-right: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(192, 160, 98, 0.5) transparent;
+  text-align: center;
+}
+
+.sobre-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sobre-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sobre-container::-webkit-scrollbar-thumb {
+  background: rgba(192, 160, 98, 0.5);
+  border-radius: 3px;
+}
+
+.sobre-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 160, 98, 0.7);
+}
+
+.sobre-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.sobre-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.sobre-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.sobre-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  background: var(--light-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.stat-item:hover {
+  transform: translateX(10px);
+  border-color: var(--border-strong);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-light);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .sobre-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    overflow: visible;
+  }
+
+  .sobre-container {
+    overflow-y: visible;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  .sobre-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .sobre-text {
+    gap: 1.25rem;
+    max-width: 100%;
+  }
+
+  .sobre-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .sobre-stats {
+    gap: 1.5rem;
+  }
+  
+  .stat-item {
+    padding: 1.5rem;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+  }
+}
