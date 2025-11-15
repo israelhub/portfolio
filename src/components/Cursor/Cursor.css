@@ -1,0 +1,52 @@
+/* Cursor personalizado */
+.cursor {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--brand-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  left: -100px;
+  top: -100px;
+  transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+body[data-theme="light"] .cursor {
+  mix-blend-mode: normal;
+  border-color: var(--brand-color-strong);
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-color);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+  left: -100px;
+  top: -100px;
+}
+
+body[data-theme="light"] .cursor-dot {
+  background-color: var(--brand-color-strong);
+}
+
+/* Estados do cursor */
+.cursor-grow {
+  width: 60px;
+  height: 60px;
+  background-color: var(--brand-color-tint);
+  border-color: transparent;
+}
+
+/* Esconder cursor padrão apenas em dispositivos com mouse */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
